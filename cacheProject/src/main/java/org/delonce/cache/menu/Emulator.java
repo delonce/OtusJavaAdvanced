@@ -5,36 +5,46 @@ import org.delonce.cache.WeakCache;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
 
 public class Emulator {
     public static void example1() throws IOException, InterruptedException {
         WeakCache weakCache = new WeakCache("cacheProject/files");
         System.out.println("Weak before GC:");
-        System.out.println(weakCache.getFromCache("notes.txt"));
+        Supplier<String> cacheValue = weakCache.getFromCache("notes.txt");
+        System.out.println(cacheValue.get());
 
+        cacheValue = null;
         System.gc();
 
         TimeUnit.SECONDS.sleep(3);
         System.out.println();
         System.out.println("Weak after GC:");
-        System.out.println(weakCache.getFromCache("notes.txt"));
+        cacheValue = weakCache.getFromCache("notes.txt");
+        System.out.println(cacheValue.get());
 
         weakCache.loadInCache("notes.txt");
         System.out.println();
         System.out.println("Weak after manually load again:");
-        System.out.println(weakCache.getFromCache("notes.txt"));
+        cacheValue = weakCache.getFromCache("notes.txt");
+        System.out.println(cacheValue.get());
     }
 
     public static void example2() throws IOException, InterruptedException {
         SoftCache softCache = new SoftCache("cacheProject/files");
         System.out.println("Soft before GC:");
-        System.out.println(softCache.getFromCache("workers.txt"));
 
+        Supplier<String> cacheValue = softCache.getFromCache("workers.txt");
+        System.out.println(cacheValue.get());
+
+        cacheValue = null;
         System.gc();
 
         TimeUnit.SECONDS.sleep(3);
         System.out.println();
         System.out.println("Soft after GC:");
-        System.out.println(softCache.getFromCache("workers.txt"));
+
+        cacheValue = softCache.getFromCache("workers.txt");
+        System.out.println(cacheValue.get());
     }
 }

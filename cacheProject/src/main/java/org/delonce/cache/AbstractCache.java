@@ -39,8 +39,15 @@ public abstract class AbstractCache<V> {
 
         Reference<V> ref = cache.get(key);
 
-        return ref != null ? ref.get() : null;
+        if (ref == null) {
+            return emptyValue();
+        }
+
+        V value = ref.get();
+        return value != null ? value : emptyValue();
     }
 
     public abstract Reference<V> createReference(Path filePath) throws IOException;
+
+    public abstract V emptyValue();
 }
