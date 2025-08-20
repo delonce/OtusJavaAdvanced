@@ -6,9 +6,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.Map;
 
 public abstract class AbstractCache<V> {
-    private final HashMap<String, Reference<V>> cache = new HashMap<>();
+    private final Map<String, Reference<V>> cache = new HashMap<>();
     private final Path dir;
 
     public AbstractCache(String dir) {
