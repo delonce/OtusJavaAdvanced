@@ -7,6 +7,8 @@ import java.util.Map;
 public class Main {
 
     //-XX:+UseSerialGC -Xms128m -Xmx128m -Xlog:gc*::time
+
+    //-XX:+UseSerialGC -Xms128m -Xmx128m -XX:NewRatio=1 -XX:SurvivorRatio=1 -Xlog:gc*::time
     public static void main(String[] args) throws InterruptedException {
         Map<String, String> stringContainer = new HashMap<>();
         System.out.println("Start of program!");
