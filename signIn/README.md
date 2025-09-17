@@ -17,3 +17,44 @@
 ```
 2025-09-09T06:44:28.404Z  INFO 7 --- [signIn] [           main] org.delonce.signIn.SignInApplication     : Started SignInApplication in 0.205 seconds (process running for 0.208)   
 ```
+
+Результаты бенчмарка:
+```
+Benchmark                                                              Mode     Cnt        Score    Error  Units
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder              thrpt       2  4056837,151           ops/s
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder           thrpt       2  1641861,628           ops/s
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder           thrpt       2  1830349,328           ops/s
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder               avgt       2       ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder            avgt       2       ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder            avgt       2       ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder             sample  607102       ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder:p0.00       sample               ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder:p0.50       sample               ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder:p0.90       sample               ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder:p0.95       sample               ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder:p0.99       sample               ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder:p0.999      sample               ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder:p0.9999     sample               ? 10??            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder:p1.00       sample                0,002            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder          sample  565001       ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder:p0.00    sample               ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder:p0.50    sample               ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder:p0.90    sample               ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder:p0.95    sample               ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder:p0.99    sample               ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder:p0.999   sample               ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder:p0.9999  sample               ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder:p1.00    sample                0,001            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder          sample  649055       ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder:p0.00    sample               ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder:p0.50    sample               ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder:p0.90    sample               ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder:p0.95    sample               ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder:p0.99    sample               ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder:p0.999   sample               ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder:p0.9999  sample               ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder:p1.00    sample                0,001            s/op
+signIn.security.Md5EncoderBenchmarks.testPasswordEncoder                 ss       2       ? 10??            s/op
+signIn.security.Sha256EncoderBenchmarks.testPasswordEncoder              ss       2       ? 10??            s/op
+signIn.security.Sha512EncoderBenchmarks.testPasswordEncoder              ss       2       ? 10??            s/op
+```
