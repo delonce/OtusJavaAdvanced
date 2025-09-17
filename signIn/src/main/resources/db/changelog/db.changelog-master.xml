@@ -40,4 +40,8 @@
         </insert>
     </changeSet>
 
+    <changeSet id="update_sequence" author="delonce">
+        <sql>ALTER SEQUENCE users_seq RESTART WITH 4</sql>
+    </changeSet>
+
 </databaseChangeLog>

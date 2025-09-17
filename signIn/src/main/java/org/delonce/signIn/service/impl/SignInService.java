@@ -1,5 +1,6 @@
 package org.delonce.signIn.service.impl;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.RequiredArgsConstructor;
 import org.delonce.signIn.model.User;
 import org.delonce.signIn.repository.UserJpaRepository;
@@ -9,6 +10,8 @@ import org.springframework.data.domain.Example;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,6 +31,7 @@ public class SignInService implements CRUDService<User> {
         user.setPassword(
                 passwordEncoder.encode(user.getPassword())
         );
+        System.out.println(user.getPassword());
 
         return userJpaRepository.saveAndFlush(user);
     }
@@ -47,5 +51,13 @@ public class SignInService implements CRUDService<User> {
     @Override
     public void delete(Integer id) {
         userJpaRepository.deleteById(id);
+    }
+
+    public static List<Integer> test(int size) {
+        List<Integer> list = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            list.add(i);
+        }
+        return list;
     }
 }
